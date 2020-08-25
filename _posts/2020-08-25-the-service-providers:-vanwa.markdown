@@ -23,7 +23,7 @@ Well isn't that interesting?  This removes any plausible deniability of the conn
 
 Where does this IP address live?  Let's take a look at [ARIN][arin-vanwa].
 
-![ARIN lookup for 203.28.246.1](/assets/vanwa-arin.jpg)
+![ARIN lookup for 203.28.246.1](/debunqr/assets/vanwa-arin.jpg)
 
 What are the important bits to glean?
 - This IP is part of a /24 CIDR block, which indicates VanWa owns the IP address range 203.28.246.0 - 203.28.246.255.
@@ -34,7 +34,7 @@ Their [marketing website][vanwa-marketing] looks like a somewhat legitimate oper
 
 What other domains are hosted on this IP?  [BuiltWith][vanwa-builtwith] can answer. Let's take a look:
 
-![Fucking yikes](/assets/vanwa-connected-domains.jpg)
+![Fucking yikes](/debunqr/assets/vanwa-connected-domains.jpg)
 
 The very first connected domain in the list is an explicit reference to the illegal content that 4chan/8chan never seems to distance itself from. 
 Again, why in the hell is a Trump-stanning SuperSpy&copy; leaking classified intelligence on a message board for fans of the type of sexual exploitation
