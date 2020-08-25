@@ -37,6 +37,9 @@ What other domains are hosted on this IP?  [BuiltWith][vanwa-builtwith] can answ
 ![Fucking yikes](/assets/vanwa-connected-domains.jpg)
 
 The very first connected domain in the list is an explicit reference to the illegal content that 4chan/8chan never seems to distance itself from. 
+Again, why in the hell is a Trump-stanning SuperSpy&copy; leaking classified intelligence on a message board for fans of the type of sexual exploitation
+that Trump is supposedly at war against?
+
 In addition to this domain there are 24 other domains recently connected to that IP.
 
 In a nutshell, Q posts as well as Qmap posts are served from a server located in Vancouver, Washington, USA.
