@@ -2,7 +2,7 @@
 layout: post
 title:  "The Service Providers: VanWa"
 date:   2020-08-25 12:08:02 -0700
-categories: isp stack
+tags: isp stack
 ---
 After 8chan got booted off of CloudFlare for providing safe harbor for terrorists, we all hoped they would go away forever.  I assumed 
 for some reason that they moved their servers to Russia like many other terrorism-adjacent sites (stormer, gab, etc...). Someone posted 
