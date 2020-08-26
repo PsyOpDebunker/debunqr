@@ -7,8 +7,8 @@ I know a bit about the internet.  Especially the plumbing. So I'm doing my part 
 debunking community which sprung up in the wake of the most absurd and astoundingly popular PsyOp masquerading as a conspiracy.
 
 ## Important Terms
-[OSINT][wiki-osint]: **O**pen **S**ource **Int**elligence.  Ad-hoc, self-organizing distributed collection, vetting, and analysis
-of Intelligence.
+[OSINT][wiki-osint]: **O**pen **S**ource **Int**elligence.  Ad-hoc, public, self-organizing distributed collection, vetting,
+and analysis of Intelligence.
 
 [PsyOp][wiki-psyop]: **Psy**chological **Op**eration.  An act of non-physical warfare.
 

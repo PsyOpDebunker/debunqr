@@ -6,7 +6,7 @@ date:   2020-08-25 14:08:02 -0700
 We already know that Qmap is hosted on the same Vancouver, Washington IP as 8kun.  What can we deduce about the rest of their stack?
 
 {% highlight bash %}
-curl -I https://qmap.pub/
+debunqr@antiqhq> curl -I https://qmap.pub/
 
 HTTP/2 200
 server: nginx
@@ -20,7 +20,13 @@ set-cookie: heroku-session-affinity=not_sharing_my_session_cookie; Version=1; Ex
 
 Look at the domain  **set-cookie** header.  The cookie domain is **mapqapp.herokuapp.com**.
 
-Try it yourself: [mapqapp.herokuapp.com][qmap-direct-link]
+Try it yourself: [mapqapp.herokuapp.com][qmap-direct-link].  Console commands reveal the Heroku router in [Virginia][aws-az]:
+
+{% highlight bash %}
+debunqr@antiqhq> dig +short qmappub.herokuapp.com
+
+us-east-1-a.route.herokuapp.com.
+{% endhighlight %}
 
 What does this mean?  It means that requests to qmap.pub are processed by San Francisco based [Heroku][heroku-home], a PAAS (Platform As A Service) host.  VanWa merely serves
 as an SSL termination endpoint.  This seems like an unnecessary architectural complication, since Heroku is a top-tier platform hosted directly on top of
@@ -55,4 +61,4 @@ The debunking community is already working on [deplatforming][tweet-deplatform-8
 [wiki-request-header]: https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 [heroku-home]: https://www.heroku.com/home
 [tweet-deplatform-8kun]: https://twitter.com/HW_BEAT_THAT/status/1297680313787662342?s=20
-
+[aws-az]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html
