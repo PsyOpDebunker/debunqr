@@ -3,6 +3,15 @@ layout: post
 title:  "The Service Providers: Heroku"
 date:   2020-08-25 14:08:02 -0700
 ---
+
+***UPDATE:  As of 2020-08-26, requests to the Heroku domain return the classic purple page developers are familiar with:***
+
+![Heroku 404](/debunqr/assets/heroku-404.jpg)
+
+***Original post continues below***
+
+___
+
 We already know that Qmap is hosted on the same Vancouver, Washington IP as 8kun.  What can we deduce about the rest of their stack?
 
 {% highlight bash %}
