@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://psyopdebunker.github.io/debunqr/feed.xml" rel="self" type="application/atom+xml" /><link href="https://psyopdebunker.github.io/debunqr/" rel="alternate" type="text/html" /><updated>2020-08-28T03:54:29+00:00</updated><id>https://psyopdebunker.github.io/debunqr/feed.xml</id><title type="html">Debunking the Most Dangerous PsyOp</title><subtitle>Analyzing and critiquing the technology choices of a non-thinking person's idea of how a Department of Energy agent with top level clearance operates.</subtitle><entry><title type="html">The Service Providers: Heroku</title><link href="https://psyopdebunker.github.io/debunqr/2020/08/25/the-service-providers-heroku.html" rel="alternate" type="text/html" title="The Service Providers: Heroku" /><published>2020-08-25T21:08:02+00:00</published><updated>2020-08-25T21:08:02+00:00</updated><id>https://psyopdebunker.github.io/debunqr/2020/08/25/the-service-providers:-heroku</id><content type="html" xml:base="https://psyopdebunker.github.io/debunqr/2020/08/25/the-service-providers-heroku.html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;UPDATE:  As of 2020-08-26, requests to the Heroku domain return the classic purple page developers are familiar with:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/debunqr/assets/heroku-404.jpg&quot; alt=&quot;Heroku 404&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Original post continues below&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We already know that Qmap is hosted on the same Vancouver, Washington IP as 8kun.  What can we deduce about the rest of their stack?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;debunqr@antiqhq&amp;gt; curl &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt; https://qmap.pub/
+
+HTTP/2 200
+server: nginx
+&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;: Tue, 24 Aug 2020 17:38:43 GMT
+content-type: text/html&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;utf-8
+content-length: 285066
+vary: Accept-Encoding
+set-cookie: heroku-session-affinity&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;not_sharing_my_session_cookie&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Expires&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Wed, 25-Aug-2020 17:38:43 GMT&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Max-Age&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;86400&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Domain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mapqapp.herokuapp.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/
+...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Look at the domain  &lt;strong&gt;set-cookie&lt;/strong&gt; header.  The cookie domain is &lt;strong&gt;mapqapp.herokuapp.com&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Try it yourself: &lt;a href=&quot;https://mapqapp.herokuapp.com/&quot;&gt;mapqapp.herokuapp.com&lt;/a&gt;.  Console commands reveal the Heroku router in &lt;a href=&quot;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html&quot;&gt;Virginia&lt;/a&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;debunqr@antiqhq&amp;gt; dig +short qmappub.herokuapp.com
+
+us-east-1-a.route.herokuapp.com.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What does this mean?  It means that requests to qmap.pub are processed by San Francisco based &lt;a href=&quot;https://www.heroku.com/home&quot;&gt;Heroku&lt;/a&gt;, a PAAS (Platform As A Service) host.  VanWa merely serves
+as an SSL termination endpoint.  This seems like an unnecessary architectural complication, since Heroku is a top-tier platform hosted directly on top of
+Amazon Web Services.  Many &lt;a href=&quot;https://www.heroku.com/customers/case-studies&quot;&gt;Heroku customers&lt;/a&gt; are large companies with much more traffic than this shitty PsyOp.&lt;/p&gt;
+
+&lt;p&gt;Why are they doing this?  This is the difficult question.  PsyOps by default are not intelligent.  How about the people who run them?&lt;/p&gt;
+
+&lt;p&gt;8kun and QAnon-related sites obviously &lt;a href=&quot;https://www.columbian.com/news/2019/nov/07/8chan-back-online-under-the-name-8kun/&quot;&gt;struggle with retaining service providers&lt;/a&gt;, so this may be a thinly veiled attempt
+to circumvent Heroku’s &lt;a href=&quot;https://www.heroku.com/policy/aup#&quot;&gt;Acceptable Use Policy&lt;/a&gt;.  I’m just speculating, but here is a list of other potential benefits of this setup:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Stability.  If Heroku shuts down this account due to &lt;a href=&quot;mailto:heroku-abuse@salesforce.com&quot;&gt;customer complaints&lt;/a&gt;, the operator can still use VanWa.&lt;/li&gt;
+  &lt;li&gt;Ease of deployment.  Heroku is famous for its simple git-based deployment.  Perhaps the qmap developers do not have strong deployment chops.&lt;/li&gt;
+  &lt;li&gt;Logging.  This does not make much sense because Heroku easily integrates with a large number of &lt;a href=&quot;https://elements.heroku.com/addons#logging&quot;&gt;logging providers&lt;/a&gt;.  Perhaps it is less
+costly to process them on VanWa.  Perhaps the operators are paranoid?&lt;/li&gt;
+  &lt;li&gt;Verifying legitimate Q posts.  We already know that “tripcodes” are a weak phenomenon, something that sounds secure to people who do not understand
+security.  Because tripcodes can be &lt;a href=&quot;https://twitter.com/bcrypt/status/1297970470214483968&quot;&gt;easily cracked&lt;/a&gt;, Qmap needs an second verification method, such as a special &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_HTTP_header_fields&quot;&gt;request header&lt;/a&gt;.
+With this architecture, VanWa could identify requests with the matching special header.&lt;/li&gt;
+  &lt;li&gt;Intrusion detection.  They are playing a dangerous game, so they need early warning of attempts by law enforcement, hackers, and intelligence services
+to attack their infrastructure.  Heroku’s router does not provide intrusion detection, so VanWa’s server could merely log attempts while forwarding the request
+to Heroku for processing.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;None of these really seem that clever, and I feel stupid for elaborating on them.&lt;/p&gt;
+
+&lt;p&gt;The debunking community is already working on &lt;a href=&quot;https://twitter.com/HW_BEAT_THAT/status/1297680313787662342?s=20&quot;&gt;deplatforming&lt;/a&gt;.  Let’s add Heroku to the list of former Q service providers.&lt;/p&gt;</content><author><name></name></author><summary type="html">UPDATE: As of 2020-08-26, requests to the Heroku domain return the classic purple page developers are familiar with:</summary></entry><entry><title type="html">The Service Providers: VanWa</title><link href="https://psyopdebunker.github.io/debunqr/2020/08/25/the-service-providers-vanwa.html" rel="alternate" type="text/html" title="The Service Providers: VanWa" /><published>2020-08-25T19:08:02+00:00</published><updated>2020-08-25T19:08:02+00:00</updated><id>https://psyopdebunker.github.io/debunqr/2020/08/25/the-service-providers:-vanwa</id><content type="html" xml:base="https://psyopdebunker.github.io/debunqr/2020/08/25/the-service-providers-vanwa.html">&lt;p&gt;After 8chan got booted off of CloudFlare for providing safe harbor for terrorists, we all hoped they would go away forever.  I assumed 
+for some reason that they moved their servers to Russia like many other terrorism-adjacent sites (stormer, gab, etc…). Someone posted 
+on &lt;a href=&quot;https://twitter.com/tobypinder/status/1297629492865896451&quot;&gt;twitter&lt;/a&gt; yesterday that 8kun and qmap domains resolve to the same IP address.  Really?  What kind of psyop does this?&lt;/p&gt;
+
+&lt;p&gt;So I decided to see for myself:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;fqdn &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;qmap.pub 8ch.net 8kun.top&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Domain &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;fqdn&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; has IP &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;dig &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; A +short &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;fqdn&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done
+
+&lt;/span&gt;Domain qmap.pub has IP 203.28.246.1
+Domain 8ch.net has IP 203.28.246.1
+Domain 8kun.top has IP 203.28.246.1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Well isn’t that interesting?  This removes any plausible deniability of the connection between Qmap and 8kun.  The domain names resolve to the same IPv4 address.&lt;/p&gt;
+
+&lt;p&gt;Where does this IP address live?  Let’s take a look at &lt;a href=&quot;https://search.arin.net/rdap/?query=203.28.246.1&quot;&gt;ARIN&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/debunqr/assets/vanwa-arin.jpg&quot; alt=&quot;ARIN lookup for 203.28.246.1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What are the important bits to glean?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;This IP is part of a /24 CIDR block, which indicates VanWa owns the IP address range 203.28.246.0 - 203.28.246.255.&lt;/li&gt;
+  &lt;li&gt;The IP address block is owned by &lt;a href=&quot;https://vanwatech.com/&quot;&gt;VanwaTech&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;The IP address range ownership was last changed Tue, 31 Mar 2020 23:58:31 GMT.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Their &lt;a href=&quot;https://vanwatech.com/&quot;&gt;marketing website&lt;/a&gt; looks like a somewhat legitimate operation.  Many illegitimate operations have professional looking websites too.&lt;/p&gt;
+
+&lt;p&gt;What other domains are hosted on this IP?  &lt;a href=&quot;https://builtwith.com/relationships/ip-address/203.28.246.1&quot;&gt;BuiltWith&lt;/a&gt; can answer. Let’s take a look:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/debunqr/assets/vanwa-connected-domains.jpg&quot; alt=&quot;Fucking yikes&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The very first connected domain in the list is an explicit reference to the illegal content that 4chan/8chan never seems to distance itself from. 
+Again, why in the hell is a Trump-stanning SuperSpy© leaking classified intelligence on a message board for fans of the type of sexual exploitation
+that Trump is supposedly at war against?&lt;/p&gt;
+
+&lt;p&gt;In addition to this domain there are 24 other domains recently connected to that IP.&lt;/p&gt;
+
+&lt;p&gt;In a nutshell, Q posts as well as Qmap posts are served from a server located in Vancouver, Washington, USA.  Qmap posts are further processed by
+&lt;a href=&quot;/2020/08/25/the-service-providers-heroku.html&quot;&gt;Heroku&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="isp" /><category term="stack" /><summary type="html">After 8chan got booted off of CloudFlare for providing safe harbor for terrorists, we all hoped they would go away forever. I assumed for some reason that they moved their servers to Russia like many other terrorism-adjacent sites (stormer, gab, etc…). Someone posted on twitter yesterday that 8kun and qmap domains resolve to the same IP address. Really? What kind of psyop does this?</summary></entry></feed>
