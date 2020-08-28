@@ -42,7 +42,8 @@ that Trump is supposedly at war against?
 
 In addition to this domain there are 24 other domains recently connected to that IP.
 
-In a nutshell, Q posts as well as Qmap posts are served from a server located in Vancouver, Washington, USA.
+In a nutshell, Q posts as well as Qmap posts are served from a server located in Vancouver, Washington, USA.  Qmap posts are further processed by
+[Heroku]({% post_url debunqr/2020-08-25-the-service-providers:-heroku %}).
 
 [arin-vanwa]: https://search.arin.net/rdap/?query=203.28.246.1
 [vanwa-marketing]: https://vanwatech.com/
